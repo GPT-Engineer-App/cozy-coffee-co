@@ -29,10 +29,14 @@ const products = [
   // More products...
 ];
 
+import { useNavigate } from "react-router-dom";
+
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
+
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
+    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5} onClick={() => navigate(`/product/${product.id}`)}>
       <Image src={product.image} alt={product.name} borderRadius="md" />
       <Box p="6">
         <Box d="flex" alignItems="baseline">

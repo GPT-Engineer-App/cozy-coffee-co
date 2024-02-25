@@ -8,6 +8,7 @@ function App() {
       <CartProvider>
         <Routes>
           <Route exact path="/" element={<Index />} />
+          // Removed the /product/:id route for now
         </Routes>
       </CartProvider>
     </Router>
