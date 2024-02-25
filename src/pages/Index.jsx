@@ -60,8 +60,16 @@ const ProductCard = ({ product }) => {
             ${product.price}
           </Text>
           <Spacer />
-          <Button leftIcon={<FaShoppingCart />} colorScheme="teal" size="sm" onClick={() => addToCart(product)}>
-            Add to Cart
+          <Button
+            leftIcon={<FaShoppingCart />}
+            colorScheme="teal"
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(product);
+            }}
+          >
+            Buy Add to Cart
           </Button>
         </Flex>
       </Box>
