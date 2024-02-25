@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Flex, Text, Heading, Grid, GridItem, Button, Image, Container, VStack, HStack, Icon, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Text, Heading, Grid, GridItem, Button, Image, Container, VStack, Icon, Spacer } from "@chakra-ui/react";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext.jsx";
 import { FaShoppingCart, FaStar } from "react-icons/fa";
 
 const products = [
@@ -28,6 +30,7 @@ const products = [
 ];
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
       <Image src={product.image} alt={product.name} borderRadius="md" />
@@ -53,7 +56,7 @@ const ProductCard = ({ product }) => {
             ${product.price}
           </Text>
           <Spacer />
-          <Button leftIcon={<FaShoppingCart />} colorScheme="teal" size="sm">
+          <Button leftIcon={<FaShoppingCart />} colorScheme="teal" size="sm" onClick={() => addToCart(product)}>
             Add to Cart
           </Button>
         </Flex>
