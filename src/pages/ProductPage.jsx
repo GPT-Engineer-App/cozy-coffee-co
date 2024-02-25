@@ -33,20 +33,22 @@ const ProductPage = () => {
   const product = products.find((p) => p.id === parseInt(id));
 
   return (
-    <Flex direction="column" align="center" justify="center" p={6}>
+    <Flex direction="column" align="center" justify="center" p={6} mt={10}>
       {product ? (
-        <Flex direction={{ base: "column", md: "row" }} align="center" justify="center" gap={4}>
+        <Flex direction={{ base: "column", md: "row" }} align="center" justify="center" gap={6}>
           <Box flexShrink={0}>
             <Image src={product.image} alt={product.name} mb={{ base: 4, md: 0 }} borderRadius="md" />
           </Box>
           <Box>
-            <Heading size="xl" mb={4}>
+            <Heading size="2xl" mb={6}>
               {product.name}
             </Heading>
-            <Text fontWeight="bold" fontSize="2xl" mb={4}>
+            <Text fontWeight="bold" fontSize="3xl" mb={6} color="brand.800">
               ${product.price}
             </Text>
-            <Text fontSize="lg">{product.description}</Text>
+            <Text fontSize="xl" color="gray.600" lineHeight="tall">
+              {product.description}
+            </Text>
           </Box>
         </Flex>
       ) : (

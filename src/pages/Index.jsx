@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5} onClick={() => navigate(`/product/${product.id}`)}>
+    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5} onClick={() => navigate(`/product/${product.id}`)} _hover={{ shadow: "md", cursor: "pointer" }} transition="transform 0.2s, box-shadow 0.2s" _active={{ transform: "scale(0.98)" }}>
       <Image src={product.image} alt={product.name} borderRadius="md" />
       <Box p="6">
         <Box d="flex" alignItems="baseline">
