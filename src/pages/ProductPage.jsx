@@ -33,22 +33,26 @@ const ProductPage = () => {
   const product = products.find((p) => p.id === parseInt(id));
 
   return (
-    <Box p={6}>
-      {product && (
-        <>
-          <Flex align="center" mb={4}>
-            <Heading size="xl">{product.name}</Heading>
-            <Spacer />
-            <Text fontWeight="bold" fontSize="2xl">
+    <Flex direction="column" align="center" justify="center" p={6}>
+      {product ? (
+        <Flex direction={{ base: "column", md: "row" }} align="center" justify="center" gap={4}>
+          <Box flexShrink={0}>
+            <Image src={product.image} alt={product.name} mb={{ base: 4, md: 0 }} borderRadius="md" />
+          </Box>
+          <Box>
+            <Heading size="xl" mb={4}>
+              {product.name}
+            </Heading>
+            <Text fontWeight="bold" fontSize="2xl" mb={4}>
               ${product.price}
             </Text>
-          </Flex>
-          <Image src={product.image} alt={product.name} mb={4} borderRadius="md" />
-          <Text fontSize="lg">{product.description}</Text>
-        </>
+            <Text fontSize="lg">{product.description}</Text>
+          </Box>
+        </Flex>
+      ) : (
+        <Text fontSize="lg">Product not found.</Text>
       )}
-      {!product && <Text fontSize="lg">Product not found.</Text>}
-    </Box>
+    </Flex>
   );
 };
 
